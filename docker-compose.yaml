@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  nexus:
+
+    container_name: nexus
+    image: sonatype/nexus
+    volumes:
+      - "nexus-data:/sonatype-work"
+    ports:
+      - "8081:8081"
+    environment: 
+      - GCLOUD_KEY_FILE=/service_account.json
+      - GCLOUD_PROJECT=matthewdavis-devqa
+      - GCLOUD_ZONE=us-east1-c
+
+volumes:
+  nexus-data:
